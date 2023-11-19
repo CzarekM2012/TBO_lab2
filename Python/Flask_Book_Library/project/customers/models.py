@@ -1,4 +1,5 @@
 from project import db, app
+from project.constants import SENSITIVE_DATA_LOG_MASK
 
 
 # Customer model
@@ -22,7 +23,7 @@ class Customer(db.Model):
         print("Getting: " + str(self),flush=True)
 
     def __repr__(self):
-        return f"Customer(ID: {self.id}, Name: {self.name}, City: {self.city}, Age: {self.age}, Pesel: {self.pesel}, Street: {self.street}, AppNo: {self.appNo})"
+        return f'Customer(ID: {self.id}, Name: {self.name}, City: {self.city}, Age: {self.age}, Pesel: {SENSITIVE_DATA_LOG_MASK}, Street: {SENSITIVE_DATA_LOG_MASK}, AppNo: {SENSITIVE_DATA_LOG_MASK})'
 
 
 with app.app_context():
